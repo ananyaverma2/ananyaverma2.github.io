@@ -1,0 +1,38 @@
+domain: ananyaverma2.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://ananyaverma2.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+# url: /website      # place folder name if the site is served in a subfolder
+
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll/tagging
+
+paginate: 5
+paginate_path: "/page/:num"
+
+
+# Pages Path
+defaults:
+  - scope:
+      path: '_pages'
+    values:
+      permalink: /:basename:output_ext
+
+include:
+  - _pages
+
+
+# Tags
+tag_page_dir:         tag
+tag_page_layout:      tag_page
+tag_permalink_style:  pretty
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+

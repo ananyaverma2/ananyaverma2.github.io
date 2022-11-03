@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://localhost:4000/2022/04/02/Cluttered-picking/</loc>
+<lastmod>2022-04-02T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2022/05/05/Design-of-a-semantic-parser-for-knowledge-representation-using-existing-computer-vision-output/</loc>
+<lastmod>2022-05-05T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/2022/10/07/Gesture-recognition/</loc>
+<lastmod>2022-10-07T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/styleguide/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tag/project/</loc>
+</url>
+</urlset>

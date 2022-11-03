@@ -1,0 +1,27 @@
+[
+  
+    {
+      "title"    : "Gesture Recognition",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/10/07/Gesture-recognition/",
+      "date"     : "7 Oct, 2022"
+    } ,
+  
+    {
+      "title"    : "Design of a semantic parser for knowledge representation using existing computer vision output",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/05/05/Design-of-a-semantic-parser-for-knowledge-representation-using-existing-computer-vision-output/",
+      "date"     : "5 May, 2022"
+    } ,
+  
+    {
+      "title"    : "Cluttered Picking",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/04/02/Cluttered-picking/",
+      "date"     : "2 Apr, 2022"
+    } 
+  
+]
