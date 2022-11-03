@@ -2,7 +2,7 @@
 layout: post
 title:  "Design of a semantic parser for knowledge representation using existing computer vision output"
 # date:   2022-10-07 18:05:55 +0300
-image:  04.jpg
+image:  02.jpg
 tags:   PROJECT
 ---
 
