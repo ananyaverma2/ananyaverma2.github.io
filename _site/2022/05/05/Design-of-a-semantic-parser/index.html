@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Cluttered Picking</title>
+  <title>Design of a semantic parser for knowledge representation using existing computer vision output</title>
   <meta name='description' content=''>
 
-  <link rel="canonical" href="http://localhost:4000/2022/04/02/Cluttered-picking/">
+  <link rel="canonical" href="http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Fonts -->
@@ -122,10 +122,10 @@
     <div class="row">
       <div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
         <!-- <span class="post__date">
-          <time datetime="2022-04-02T00:00:00+02:00">Apr 02, 2022</time>
+          <time datetime="2022-05-05T00:00:00+02:00">May 05, 2022</time>
         </span> -->
 
-        <h1 class="post-title">Cluttered Picking</h1>
+        <h1 class="post-title">Design of a semantic parser for knowledge representation using existing computer vision output</h1>
 
         <div class="post__info">
           <!-- <div class="post__author">
@@ -161,36 +161,100 @@
     <article class="post  col col-8 col-t-10 col-m-12">
 
       <div class="post__content">
-        <h2 id="overall-functionality">Overall functionality</h2>
+        <h2 id="motivation">Motivation</h2>
+<p>The main goal of this research is to predict the relationships between two objects in an image and create a queryable knowledge representation, such that given the below image, the model should output the following graph:</p>
 
-<p><img align="right" width="34%" src="https://raw.githubusercontent.com/ananyaverma2/HEART_MET_cluttered_pick/main/images/overview.png" /></p>
+<h3 id="input">Input</h3>
+<p align="center" width="100%">
+    <img width="55%" src="https://github.com/ananyaverma2/semantic_parser/blob/main/drawings/hammer.png" />
+</p>
 
-<ul>
-  <li>The robot perceives its environment and the data is published on the topics to which we subscribe to.</li>
-  <li>Once we get the image of the environment, object detection 
-is carried out using Faster-RCNN and the object labels along 
-with its bounding boxes are detected.</li>
-  <li>Then these 2D bounding boxes are used to calculate the centroid of the object which acts as a grasping position in 2D.</li>
-  <li>This 2D position is converted to 3D position and the yaw is also calculated, which combinedly gives us the grasing 
-pose of the object.</li>
-  <li>This process is looped over for the cluttered picking task.</li>
-</ul>
+<h3 id="output">Output</h3>
+<p align="center" width="100%">
+    <img width="45%" src="https://github.com/ananyaverma2/semantic_parser/blob/main/drawings/hammer_tri.png" />
+</p>
 
-<h2 id="how-to-run-the-code">How to run the code:</h2>
+<h2 id="dependencies">Dependencies</h2>
 
-<p>To run the code you have to run 2 terminals with the below mentioned commands:</p>
+<p>The requirements.txt file will list all Python libraries that the code depends on, and they will be installed using:</p>
 
-<h4 id="terminal-1">Terminal-1</h4>
-<p>Run object detection code: <br />
-<code class="language-plaintext highlighter-rouge">roslaunch object_detection grasp_pose_estimation.launch</code></p>
+<p><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></p>
 
-<h4 id="terminal-2">Terminal-2</h4>
-<p>Publish images from rosbag files continuously using the <code class="language-plaintext highlighter-rouge">-l</code> argument<br />
-<code class="language-plaintext highlighter-rouge">rosbag play -l &lt;path_to_bag_file/_.bag&gt;</code></p>
+<p>Also, download the pretrained faster-rcnn model from <a href="https://drive.google.com/file/d/18n_3V1rywgeADZ3oONO0DsuuS9eMW6sN/view">here</a> and place it under faster-rcnn/data/pretrained_models folder.</p>
 
-<p><strong>OR</strong></p>
+<h2 id="model-architecture">Model Architecture</h2>
+<p>The model uses three features as depicted in the image below to calculate the corresponding scores, that is, visual score, spatial score and semantic score.</p>
+<ol>
+  <li><strong>Visual features</strong> : They represent the visual attributes of objects in an image and are helpful in finding out the relationships between objects. For example, <strong>man-book</strong> can have many relationships but if we have an image it can be boiled down to just one.</li>
+  <li><strong>Semantic features</strong> : They represent the subject-object pair. For example, we know that <strong>man-holding-book</strong> is more probable than <strong>man-under-book</strong>.</li>
+  <li><strong>Spatial features</strong> : They represent the position of objects in an image and are important in predicting relationships like <strong>on</strong> and <strong>under</strong>.</li>
+</ol>
 
-<p>Connect to the youBot server at <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.114:11311</code> for youBot-4 and <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.142:11311</code> for youBot-2</p>
+<p align="left" width="100%">
+    <img width="1000" src="https://github.com/ananyaverma2/semantic_parser/blob/main/drawings/main.png" />
+</p>
+
+<p>Once the above-mentioned features are used to predict the relationships between objects, a knowledge representation is generated from it.</p>
+
+<p>Also, these graphs can be queried using functions :</p>
+
+<ol>
+  <li>num_of_given_relation(G, predicate):</li>
+  <li>triples_with_given_predicate(G, predicate):</li>
+  <li>is_entity_present(G, entity):</li>
+</ol>
+
+<p>wherein,  G = graph, predicate = relationship, entity = subject/object</p>
+
+<h4 id="use-case">Use Case:</h4>
+<p>This use case is created using the graph depicted above
+<code class="language-plaintext highlighter-rouge">[input]</code>
+<code class="language-plaintext highlighter-rouge">triples_with_given_predicate(G, "next to")</code>
+<code class="language-plaintext highlighter-rouge">[output]</code>
+<code class="language-plaintext highlighter-rouge">hammer and plas are linked with the relationships next to</code>
+<code class="language-plaintext highlighter-rouge">plas and screwdriver are linked with the relationships next to</code></p>
+
+<h2 id="prepare-dataset">Prepare Dataset</h2>
+<ol>
+  <li>Download the relationships.json file and images <a href="http://visualgenome.org/api/v0/api_home.html">here</a> and move it to a folder named visual_genome_files.</li>
+  <li>Run dataset.py file by specifying the path of the relationships.json file to the filename. This will generate a json file dataset.json.</li>
+  <li>Update the path of dataset.json in VG_model.py and wherever necessary.</li>
+</ol>
+
+<h2 id="how-to-train">How to Train</h2>
+
+<ol>
+  <li>Install all the dependencies mentioned above.</li>
+  <li>Run the VG_model.py file to train the model for the desired settings.</li>
+  <li>You can also evaluate the model using the evaluation_model1.py (recall@100 method) and evaluation_method2.py (recall/precision method).</li>
+</ol>
+
+<h2 id="visualize-the-results">Visualize the results</h2>
+
+<ol>
+  <li>Once you have the trained model, save it under a folder called models and update its path in demo.py.</li>
+  <li>Now, run demo.py for the single image to visualize the outputs.</li>
+</ol>
+
+<h2 id="file-description">File description</h2>
+
+<ol>
+  <li>dataset.py : takes the relationships.json file from the Visual Genome dataset and extracts the dataset.json file.</li>
+  <li>dataset_loader.py : loads the dataset into the model in VG_model.py file</li>
+  <li>feature_extraction.py : extracts the bounding boxes, labels and RoI features from the faster-rcnn for the image.</li>
+  <li>visual_features : takes the inputs from feature_extraction.py and returns a visual score.</li>
+  <li>spatial_features.py : return a spatial score.</li>
+  <li>semantic_features.py : return a semantic score.</li>
+  <li>VG_model.py : loads an image, and gets all the three features here to train the model and also calculate the loss of the model.</li>
+  <li>evaluation_method1.py : to evaluate the model using the recall@100 method.</li>
+  <li>evaluation_method2.py : to evaluate the model using the recall method.</li>
+  <li>draw_graph.py : takes the predicted triples as an input and creates a knowledge representation that can be queried.</li>
+  <li>demo.py : visualize the whole model here, give an image as an input and get the knowledge graph for it.</li>
+</ol>
+
+<blockquote>
+  <p>This repository contains the code whose design is taken from <a href="https://arxiv.org/pdf/1811.09543.pdf">An Interpretable Model for Scene Graph Generation</a> and <a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhang_Relationship_Proposal_Networks_CVPR_2017_paper.pdf">Relationship Proposal Networks</a>.</p>
+</blockquote>
 
       </div>
 
@@ -198,24 +262,24 @@ pose of the object.</li>
         <span class="share__title">Share this article:</span>
         <ul class="share__list list-reset">
           <li class="share__item">
-            <a class="share__lined" href="https://www.linkedin.com/sharer/sharer.php?u=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/"
+            <a class="share__lined" href="https://www.linkedin.com/sharer/sharer.php?u=http://localhost:4000http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
               title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__twitter" href="https://github.com/intent/tweet?text=Cluttered%20Picking&url=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/"
+            <a class="share__twitter" href="https://github.com/intent/tweet?text=Design%20of%20a%20semantic%20parser%20for%20knowledge%20representation%20using%20existing%20computer%20vision%20output&url=http://localhost:4000http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
               title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-github"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/&title=Cluttered%20Picking&summary=&source="
+            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/&title=Design%20of%20a%20semantic%20parser%20for%20knowledge%20representation%20using%20existing%20computer%20vision%20output&summary=&source="
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/02/Cluttered-picking/&amp;media=http://localhost:4000http://localhost:4000/images/04.jpg&amp;description=Cluttered%20Picking"
+            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/&amp;media=http://localhost:4000http://localhost:4000/images/04.jpg&amp;description=Design%20of%20a%20semantic%20parser%20for%20knowledge%20representation%20using%20existing%20computer%20vision%20output"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest"
               rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
           </li>
@@ -229,18 +293,31 @@ pose of the object.</li>
   <div class="container">
   <div class="post__navigation">
     
+    <div class="prev">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/youBot-from-scratch/" style="background-image: url(http://localhost:4000/images/03.jpg)"></a>
+      <h2 class="post__nav__title">
+        <i class="ion ion-md-arrow-back"></i>
+        <a href="http://localhost:4000/2022/04/21/youBot-from-scratch/">youBot from scratch</a>
+      </h2>
+      <p class="prev__excerpt">
+        
+          This repository offers a detailed description to perform autonomous navigation using a KUKA youBot controll...
+        
+      </p>
+    </div>
+    
 
     
     <div class="next">
-      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/" style="background-image: url(http://localhost:4000/images/02.jpg)">
+      <a class="post__nav__image" href="http://localhost:4000/2022/10/07/Gesture-recognition/" style="background-image: url(http://localhost:4000/images/03.jpg)">
       </a>
       <h2 class="post__nav__title">
-        <a href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/">Object placement using Point Cloud Library (PCL)</a>
+        <a href="http://localhost:4000/2022/10/07/Gesture-recognition/">Gesture Recognition</a>
         <i class="ion ion-md-arrow-forward"></i>
       </h2>
       <p class="next__excerpt">
         
-          Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out...
+          This task was performed in [METRICS HEART-MET Competition](https://metricsproject.eu/healthcare/heart-met-c...
         
       </p>
     </div>

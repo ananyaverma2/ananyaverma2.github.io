@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Cluttered Picking</title>
+  <title>Planetary and Exoplanetary Dataset</title>
   <meta name='description' content=''>
 
-  <link rel="canonical" href="http://localhost:4000/2022/04/02/Cluttered-picking/">
+  <link rel="canonical" href="http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Fonts -->
@@ -122,10 +122,10 @@
     <div class="row">
       <div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
         <!-- <span class="post__date">
-          <time datetime="2022-04-02T00:00:00+02:00">Apr 02, 2022</time>
+          <time datetime="2022-04-21T00:00:00+02:00">Apr 21, 2022</time>
         </span> -->
 
-        <h1 class="post-title">Cluttered Picking</h1>
+        <h1 class="post-title">Planetary and Exoplanetary Dataset</h1>
 
         <div class="post__info">
           <!-- <div class="post__author">
@@ -148,7 +148,7 @@
   
   
     <div class="post__head">
-      <div class="post-image" style="background-image: url(http://localhost:4000/images/04.jpg)"></div>
+      <div class="post-image" style="background-image: url(http://localhost:4000/images/02.jpg)"></div>
     </div>
   
 
@@ -161,36 +161,120 @@
     <article class="post  col col-8 col-t-10 col-m-12">
 
       <div class="post__content">
-        <h2 id="overall-functionality">Overall functionality</h2>
+        <h3 id="description">Description:</h3>
 
-<p><img align="right" width="34%" src="https://raw.githubusercontent.com/ananyaverma2/HEART_MET_cluttered_pick/main/images/overview.png" /></p>
+<p>This repository is created for analyzing planetary and exoplanetary datasets and extract important information as there was no combined dataset available that has all the information.</p>
+
+<blockquote>
+  <p>NOTE: The analysis of the data is done using the Jupyter Notebook in order to improve data visualization.</p>
+</blockquote>
+
+<h3 id="datasets">Datasets:</h3>
+<p>The information is extracted from the following datasets:</p>
 
 <ul>
-  <li>The robot perceives its environment and the data is published on the topics to which we subscribe to.</li>
-  <li>Once we get the image of the environment, object detection 
-is carried out using Faster-RCNN and the object labels along 
-with its bounding boxes are detected.</li>
-  <li>Then these 2D bounding boxes are used to calculate the centroid of the object which acts as a grasping position in 2D.</li>
-  <li>This 2D position is converted to 3D position and the yaw is also calculated, which combinedly gives us the grasing 
-pose of the object.</li>
-  <li>This process is looped over for the cluttered picking task.</li>
+  <li><a href="https://github.com/Stellarium/stellarium">Stellarium</a></li>
+  <li><a href="https://github.com/skyfielders/python-skyfield/blob/master/skyfield/data/hipparcos.py">Skyfield</a></li>
+  <li><a href="https://github.com/astronexus/HYG-Database">HYG dataset</a></li>
+  <li><a href="http://exoplanet.eu/catalog/">Exoplanets dataset</a></li>
 </ul>
 
-<h2 id="how-to-run-the-code">How to run the code:</h2>
+<h3 id="information-collected">Information collected:</h3>
+<p>You can find the following headers in the dataset:</p>
 
-<p>To run the code you have to run 2 terminals with the below mentioned commands:</p>
+<table>
+  <thead>
+    <tr>
+      <th>hip</th>
+      <th>ra(hms)</th>
+      <th>dec(dms)</th>
+      <th>ra(deg)</th>
+      <th>dec(deg)</th>
+      <th>magnitude</th>
+      <th>xy position</th>
+      <th>constellation names</th>
+      <th>distance(pc)</th>
+      <th>mass(ju)</th>
+      <th>radius(ju)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>67522</td>
+      <td>+13 50 6.000000480003109</td>
+      <td>-40 50 9.000067200005768</td>
+      <td>207.525</td>
+      <td>-40.835833</td>
+      <td>9.7900</td>
+      <td>[33.016166527468506, -1.384613543882283]</td>
+      <td>—</td>
+      <td>127.2700</td>
+      <td>5.000000</td>
+      <td>0.898400</td>
+    </tr>
+  </tbody>
+</table>
 
-<h4 id="terminal-1">Terminal-1</h4>
-<p>Run object detection code: <br />
-<code class="language-plaintext highlighter-rouge">roslaunch object_detection grasp_pose_estimation.launch</code></p>
+<h3 id="description-of-the-files-in-the-dataset">Description of the files in the dataset:</h3>
 
-<h4 id="terminal-2">Terminal-2</h4>
-<p>Publish images from rosbag files continuously using the <code class="language-plaintext highlighter-rouge">-l</code> argument<br />
-<code class="language-plaintext highlighter-rouge">rosbag play -l &lt;path_to_bag_file/_.bag&gt;</code></p>
+<h4 id="stellarium">Stellarium</h4>
 
-<p><strong>OR</strong></p>
+<ul>
+  <li><strong>constellation_names.csv</strong> : contains abbreviation and full name of all the constellations</li>
+  <li><strong>constellations_art.csv</strong> : contains hip value and x y position of three boundary stars of each constellation</li>
+  <li><strong>constellations_hip.csv</strong> : contains the details about connections of stars in a constellations. 
+example: [1,2,3,4,5,6], here 1 and 2 are connected, similarly 3, 4 and 5, 6 are connected</li>
+  <li><strong>ssystem_major.csv</strong> : contains orbits and physical characteristics of different planetary bodies</li>
+  <li><strong>ssystem_minor.csv</strong> : contains orbits and physical characteristics of different planetary bodies</li>
+  <li><strong>base_locations.txt</strong> : it describes various locations on earth</li>
+</ul>
 
-<p>Connect to the youBot server at <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.114:11311</code> for youBot-4 and <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.142:11311</code> for youBot-2</p>
+<h4 id="skyfield">Skyfield</h4>
+<p>The values of HIP, RA and Dec were obtained from hip_main.dat file obtained from Skyfield:</p>
+
+<ul>
+  <li>
+    <p><strong>hip_main.dat</strong> : it is one of the largest dataset and conatins some of the most important information like:</p>
+
+    <ul>
+      <li>hip values</li>
+      <li>ra (hms) and dec (dms) values</li>
+      <li>ra and dec values in degrees</li>
+      <li>magnitude of stars</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="exoplanets">Exoplanets</h4>
+<p>Further data has been analysed and added using the exoplanets catalog</p>
+
+<ul>
+  <li><strong>exoplanet.eu_catalog.dat</strong> : contains information like ra, dec, distance, radius and more for 4870 exoplanets</li>
+</ul>
+
+<h4 id="hyg-dataset">HYG dataset</h4>
+
+<ul>
+  <li><strong>hygdata_v3.csv</strong> : contains information like hip values, distance and more</li>
+</ul>
+
+<h3 id="additional-functionalities">Additional functionalities:</h3>
+
+<p>Some of the useful functionalities that are provided in this repository are:</p>
+
+<h4 id="get-l-and-b-values-galatic-coordinates-from-hip-values">get l and b values (galatic coordinates) from hip values</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">equ2gal</span><span class="p">(</span><span class="mf">000.00091185</span><span class="p">,</span> <span class="o">+</span><span class="mf">01.08901332</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mf">33.146182060432565</span><span class="p">,</span> <span class="mf">0.5695493882865139</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="plotting-individual-constellations">plotting individual constellations</h4>
+
+<p><img src="https://github.com/ananyaverma2/planetary-and-exoplanetary-dataset/blob/master/pictures/display_cons.jpg" alt="plotting individual constellations" /></p>
+
+<h4 id="visualizing-the-constellations-using-three-boundary-stars">visualizing the constellations using three boundary stars</h4>
+
+<p><img src="https://github.com/ananyaverma2/planetary-and-exoplanetary-dataset/blob/master/pictures/cons.jpg" width="600" height="600" /></p>
 
       </div>
 
@@ -198,24 +282,24 @@ pose of the object.</li>
         <span class="share__title">Share this article:</span>
         <ul class="share__list list-reset">
           <li class="share__item">
-            <a class="share__lined" href="https://www.linkedin.com/sharer/sharer.php?u=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/"
+            <a class="share__lined" href="https://www.linkedin.com/sharer/sharer.php?u=http://localhost:4000http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
               title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__twitter" href="https://github.com/intent/tweet?text=Cluttered%20Picking&url=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/"
+            <a class="share__twitter" href="https://github.com/intent/tweet?text=Planetary%20and%20Exoplanetary%20Dataset&url=http://localhost:4000http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
               title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-github"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/&title=Cluttered%20Picking&summary=&source="
+            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/&title=Planetary%20and%20Exoplanetary%20Dataset&summary=&source="
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/02/Cluttered-picking/&amp;media=http://localhost:4000http://localhost:4000/images/04.jpg&amp;description=Cluttered%20Picking"
+            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/&amp;media=http://localhost:4000http://localhost:4000/images/02.jpg&amp;description=Planetary%20and%20Exoplanetary%20Dataset"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest"
               rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
           </li>
@@ -229,18 +313,31 @@ pose of the object.</li>
   <div class="container">
   <div class="post__navigation">
     
+    <div class="prev">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/" style="background-image: url(http://localhost:4000/images/02.jpg)"></a>
+      <h2 class="post__nav__title">
+        <i class="ion ion-md-arrow-back"></i>
+        <a href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/">Object placement using Point Cloud Library (PCL)</a>
+      </h2>
+      <p class="prev__excerpt">
+        
+          Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out...
+        
+      </p>
+    </div>
+    
 
     
     <div class="next">
-      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/" style="background-image: url(http://localhost:4000/images/02.jpg)">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/" style="background-image: url(http://localhost:4000/images/04.jpg)">
       </a>
       <h2 class="post__nav__title">
-        <a href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/">Object placement using Point Cloud Library (PCL)</a>
+        <a href="http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/">Provenance Recording with ROS2</a>
         <i class="ion ion-md-arrow-forward"></i>
       </h2>
       <p class="next__excerpt">
         
-          Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out...
+          This code repo models a running ROS 2 system into its equivalent Prov format (Developed for ROS 2 Eloquent ...
         
       </p>
     </div>

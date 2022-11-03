@@ -2,7 +2,7 @@
 layout: post
 title:  "Cluttered Picking"
 # date:   2022-04-02 18:05:55 +0300
-image:  02.jpg
+image:  04.jpg
 tags:   PROJECT
 ---
 

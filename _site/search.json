@@ -12,8 +12,40 @@
       "title"    : "Design of a semantic parser for knowledge representation using existing computer vision output",
       "category" : "",
       "tags"     : "PROJECT",
-      "url"      : "http://localhost:4000/2022/05/05/Design-of-a-semantic-parser-for-knowledge-representation-using-existing-computer-vision-output/",
+      "url"      : "http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/",
       "date"     : "5 May, 2022"
+    } ,
+  
+    {
+      "title"    : "youBot from scratch",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/04/21/youBot-from-scratch/",
+      "date"     : "21 Apr, 2022"
+    } ,
+  
+    {
+      "title"    : "Provenance Recording with ROS2",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/",
+      "date"     : "21 Apr, 2022"
+    } ,
+  
+    {
+      "title"    : "Planetary and Exoplanetary Dataset",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/",
+      "date"     : "21 Apr, 2022"
+    } ,
+  
+    {
+      "title"    : "Object placement using Point Cloud Library (PCL)",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/",
+      "date"     : "21 Apr, 2022"
     } ,
   
     {

@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Cluttered Picking</title>
+  <title>Provenance Recording with ROS2</title>
   <meta name='description' content=''>
 
-  <link rel="canonical" href="http://localhost:4000/2022/04/02/Cluttered-picking/">
+  <link rel="canonical" href="http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/">
   <link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
 
   <!-- Fonts -->
@@ -122,10 +122,10 @@
     <div class="row">
       <div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
         <!-- <span class="post__date">
-          <time datetime="2022-04-02T00:00:00+02:00">Apr 02, 2022</time>
+          <time datetime="2022-04-21T00:00:00+02:00">Apr 21, 2022</time>
         </span> -->
 
-        <h1 class="post-title">Cluttered Picking</h1>
+        <h1 class="post-title">Provenance Recording with ROS2</h1>
 
         <div class="post__info">
           <!-- <div class="post__author">
@@ -161,36 +161,66 @@
     <article class="post  col col-8 col-t-10 col-m-12">
 
       <div class="post__content">
-        <h2 id="overall-functionality">Overall functionality</h2>
+        <p>This code repo models a running ROS 2 system into its equivalent Prov format (Developed for ROS 2 Eloquent running on Ubuntu 20.04).</p>
 
-<p><img align="right" width="34%" src="https://raw.githubusercontent.com/ananyaverma2/HEART_MET_cluttered_pick/main/images/overview.png" /></p>
+<h3 id="requirements">Requirements</h3>
+<p>Before cloning this repository make sure that you have ROS2 installed in your system and source it in the terminal.</p>
 
+<h3 id="description-of-prov-model">Description of Prov Model</h3>
+<p>The outlines relating to the Prov Model have been defined in the file <code class="language-plaintext highlighter-rouge">Prov_Model.md</code>. This file describes the basic outlay of the system and the approach used to model the system</p>
+
+<h3 id="setting-up-your-system">Setting up your system</h3>
+<p>First clone the repository to your computer
+To download utilized libraries:<br />
+1) <code class="language-plaintext highlighter-rouge">cd</code> to the directory where <code class="language-plaintext highlighter-rouge">requirements.txt</code> is located.
+2) Optional: activate your virtualenv
+3) Run the below command in the shell:</p>
+<pre>
+pip install -r requirements.txt
+</pre>
+
+<p><strong>Necessary:</strong> <em>Launch your ROS system which you’d like to record</em><br /></p>
+
+<h3 id="there-are-two-methods-to-use-the-ros2prov-software">There are two methods to use the ROS2Prov Software:</h3>
+
+<p>I) <strong>Recommended and easier method:</strong>
+To run the GUI:<br />
+1) In a new terminal, <code class="language-plaintext highlighter-rouge">cd</code> to the directory where <code class="language-plaintext highlighter-rouge">GUI_prov.py</code> is located
+2) Run the below command in the terminal:</p>
+<pre>
+python3 GUI_prov.py
+</pre>
+<p>You’ll find three buttons on the GUI:</p>
 <ul>
-  <li>The robot perceives its environment and the data is published on the topics to which we subscribe to.</li>
-  <li>Once we get the image of the environment, object detection 
-is carried out using Faster-RCNN and the object labels along 
-with its bounding boxes are detected.</li>
-  <li>Then these 2D bounding boxes are used to calculate the centroid of the object which acts as a grasping position in 2D.</li>
-  <li>This 2D position is converted to 3D position and the yaw is also calculated, which combinedly gives us the grasing 
-pose of the object.</li>
-  <li>This process is looped over for the cluttered picking task.</li>
+  <li><code class="language-plaintext highlighter-rouge">Record</code>: Records the Information about the ROS 2 system. Once recording as been started, it will continue as long as it receives an interrupt <code class="language-plaintext highlighter-rouge">Ctrl + C</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">Dummy Prov Model</code>: This runs the code for and displays the dummy prov model which shows a sample Prov Model of a ROS 2 System with two Nodes communicating with each other.</li>
+  <li><code class="language-plaintext highlighter-rouge">ROS Snapshot</code>: It takes a snapshot of the ROS System for the instant when the button is pressed and exports an equivalent Prov Model.</li>
 </ul>
 
-<h2 id="how-to-run-the-code">How to run the code:</h2>
+<p>II) <strong>Manual method:</strong>
+To extract the data from the ROS system using the python file: <br />
+1) In a new terminal, <code class="language-plaintext highlighter-rouge">cd</code> to the directory where <code class="language-plaintext highlighter-rouge">ROS2-data-extraction-updated.py</code> is located
+2) Run the below command in the terminal:</p>
+<pre>
+python3 ROS2-data-extraction-updated.py
+</pre>
+<p>This file has a start-stop functionality. The data extraction starts once you run the file using the above mentioned command. To terminate the process, please press <code class="language-plaintext highlighter-rouge">Ctrl+C</code>. The data will be stored in a .csv file with the name “Data_storage.csv”. This file can be found in the src folder of the repository.</p>
 
-<p>To run the code you have to run 2 terminals with the below mentioned commands:</p>
+<p>To take a snapshot of the current system and to view it: <br />
+1) In a new terminal, <code class="language-plaintext highlighter-rouge">cd</code> to the directory where <code class="language-plaintext highlighter-rouge">single_instance_prov_generator.py</code> is located
+2) Run the below command in the terminal:</p>
+<pre>
+python3 single_instance_prov_generator.py
+</pre>
+<p>3) You can find the Prov Model files in the folder <code class="language-plaintext highlighter-rouge">ROS2Prov Model</code>
+This file will take the information about the current running nodes, topics etc and generate the prov model based on it.</p>
 
-<h4 id="terminal-1">Terminal-1</h4>
-<p>Run object detection code: <br />
-<code class="language-plaintext highlighter-rouge">roslaunch object_detection grasp_pose_estimation.launch</code></p>
-
-<h4 id="terminal-2">Terminal-2</h4>
-<p>Publish images from rosbag files continuously using the <code class="language-plaintext highlighter-rouge">-l</code> argument<br />
-<code class="language-plaintext highlighter-rouge">rosbag play -l &lt;path_to_bag_file/_.bag&gt;</code></p>
-
-<p><strong>OR</strong></p>
-
-<p>Connect to the youBot server at <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.114:11311</code> for youBot-4 and <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.142:11311</code> for youBot-2</p>
+<h3 id="future-work">Future Work</h3>
+<ul>
+  <li>Currently we can get a single time snapshot of the system (i.e. the data for the current instant of time) and convert it into a provenance model. We also have the functionality to store the data for a given ROS 2 System. We can extend this to a real-time system which takes the data and converts it into a prov model in real-time till the stop button is pressed.</li>
+  <li>Modelling other elements of a ROS System such as Services, Actions etc.</li>
+  <li>Support for working with Graph Databases (i.e. Neo4j)</li>
+</ul>
 
       </div>
 
@@ -198,24 +228,24 @@ pose of the object.</li>
         <span class="share__title">Share this article:</span>
         <ul class="share__list list-reset">
           <li class="share__item">
-            <a class="share__lined" href="https://www.linkedin.com/sharer/sharer.php?u=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/"
+            <a class="share__lined" href="https://www.linkedin.com/sharer/sharer.php?u=http://localhost:4000http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
               title="Share on Facebook" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__twitter" href="https://github.com/intent/tweet?text=Cluttered%20Picking&url=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/"
+            <a class="share__twitter" href="https://github.com/intent/tweet?text=Provenance%20Recording%20with%20ROS2&url=http://localhost:4000http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
               title="Share on Twitter" rel="nofollow"><i class="ion ion-logo-github"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000http://localhost:4000/2022/04/02/Cluttered-picking/&title=Cluttered%20Picking&summary=&source="
+            <a class="share__linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/&title=Provenance%20Recording%20with%20ROS2&summary=&source="
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" rel="nofollow"><i class="ion ion-logo-linkedin"></i></a>
           </li>
 
           <li class="share__item">
-            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/02/Cluttered-picking/&amp;media=http://localhost:4000http://localhost:4000/images/04.jpg&amp;description=Cluttered%20Picking"
+            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/21/Provenance-Recording-with-ROS2/&amp;media=http://localhost:4000http://localhost:4000/images/04.jpg&amp;description=Provenance%20Recording%20with%20ROS2"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest"
               rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
           </li>
@@ -229,18 +259,33 @@ pose of the object.</li>
   <div class="container">
   <div class="post__navigation">
     
+    <div class="prev">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/" style="background-image: url(http://localhost:4000/images/02.jpg)"></a>
+      <h2 class="post__nav__title">
+        <i class="ion ion-md-arrow-back"></i>
+        <a href="http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/">Planetary and Exoplanetary Dataset</a>
+      </h2>
+      <p class="prev__excerpt">
+        
+          Description:
+
+This repository is created for analyzing planetary and exoplanetary datasets and extract impo...
+        
+      </p>
+    </div>
+    
 
     
     <div class="next">
-      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/" style="background-image: url(http://localhost:4000/images/02.jpg)">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/youBot-from-scratch/" style="background-image: url(http://localhost:4000/images/03.jpg)">
       </a>
       <h2 class="post__nav__title">
-        <a href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/">Object placement using Point Cloud Library (PCL)</a>
+        <a href="http://localhost:4000/2022/04/21/youBot-from-scratch/">youBot from scratch</a>
         <i class="ion ion-md-arrow-forward"></i>
       </h2>
       <p class="next__excerpt">
         
-          Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out...
+          This repository offers a detailed description to perform autonomous navigation using a KUKA youBot controll...
         
       </p>
     </div>
