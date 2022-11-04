@@ -148,7 +148,7 @@
   
   
     <div class="post__head">
-      <div class="post-image" style="background-image: url(http://localhost:4000/images/02.jpg)"></div>
+      <div class="post-image" style="background-image: url(http://localhost:4000/images/semantic_title_image.png)"></div>
     </div>
   
 
@@ -166,21 +166,13 @@
 
 <h3 id="input">Input</h3>
 <p align="center" width="100%">
-    <img width="55%" src="https://github.com/ananyaverma2/semantic_parser/blob/main/drawings/hammer.png" />
+    <img width="55%" src="https://raw.githubusercontent.com/ananyaverma2/images_stored/master/hammer.png" />
 </p>
 
 <h3 id="output">Output</h3>
 <p align="center" width="100%">
-    <img width="45%" src="https://github.com/ananyaverma2/semantic_parser/blob/main/drawings/hammer_tri.png" />
+    <img width="45%" src="https://raw.githubusercontent.com/ananyaverma2/images_stored/master/hammer_tri.png" />
 </p>
-
-<h2 id="dependencies">Dependencies</h2>
-
-<p>The requirements.txt file will list all Python libraries that the code depends on, and they will be installed using:</p>
-
-<p><code class="language-plaintext highlighter-rouge">pip install -r requirements.txt</code></p>
-
-<p>Also, download the pretrained faster-rcnn model from <a href="https://drive.google.com/file/d/18n_3V1rywgeADZ3oONO0DsuuS9eMW6sN/view">here</a> and place it under faster-rcnn/data/pretrained_models folder.</p>
 
 <h2 id="model-architecture">Model Architecture</h2>
 <p>The model uses three features as depicted in the image below to calculate the corresponding scores, that is, visual score, spatial score and semantic score.</p>
@@ -191,7 +183,7 @@
 </ol>
 
 <p align="left" width="100%">
-    <img width="1000" src="https://github.com/ananyaverma2/semantic_parser/blob/main/drawings/main.png" />
+    <img width="1000" src="https://raw.githubusercontent.com/ananyaverma2/images_stored/master/main.png" />
 </p>
 
 <p>Once the above-mentioned features are used to predict the relationships between objects, a knowledge representation is generated from it.</p>
@@ -207,54 +199,16 @@
 <p>wherein,  G = graph, predicate = relationship, entity = subject/object</p>
 
 <h4 id="use-case">Use Case:</h4>
-<p>This use case is created using the graph depicted above
-<code class="language-plaintext highlighter-rouge">[input]</code>
-<code class="language-plaintext highlighter-rouge">triples_with_given_predicate(G, "next to")</code>
-<code class="language-plaintext highlighter-rouge">[output]</code>
-<code class="language-plaintext highlighter-rouge">hammer and plas are linked with the relationships next to</code>
+<p>This use case is created using the graph depicted above: <br />
+<code class="language-plaintext highlighter-rouge">[input]</code> <br />
+<code class="language-plaintext highlighter-rouge">triples_with_given_predicate(G, "next to")</code> <br />
+<code class="language-plaintext highlighter-rouge">[output]</code> <br />
+<code class="language-plaintext highlighter-rouge">hammer and plas are linked with the relationships next to</code> <br />
 <code class="language-plaintext highlighter-rouge">plas and screwdriver are linked with the relationships next to</code></p>
 
-<h2 id="prepare-dataset">Prepare Dataset</h2>
-<ol>
-  <li>Download the relationships.json file and images <a href="http://visualgenome.org/api/v0/api_home.html">here</a> and move it to a folder named visual_genome_files.</li>
-  <li>Run dataset.py file by specifying the path of the relationships.json file to the filename. This will generate a json file dataset.json.</li>
-  <li>Update the path of dataset.json in VG_model.py and wherever necessary.</li>
-</ol>
+<p>This repository contains the code whose design is taken from <a href="https://arxiv.org/pdf/1811.09543.pdf">An Interpretable Model for Scene Graph Generation</a> and <a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhang_Relationship_Proposal_Networks_CVPR_2017_paper.pdf">Relationship Proposal Networks</a>.</p>
 
-<h2 id="how-to-train">How to Train</h2>
-
-<ol>
-  <li>Install all the dependencies mentioned above.</li>
-  <li>Run the VG_model.py file to train the model for the desired settings.</li>
-  <li>You can also evaluate the model using the evaluation_model1.py (recall@100 method) and evaluation_method2.py (recall/precision method).</li>
-</ol>
-
-<h2 id="visualize-the-results">Visualize the results</h2>
-
-<ol>
-  <li>Once you have the trained model, save it under a folder called models and update its path in demo.py.</li>
-  <li>Now, run demo.py for the single image to visualize the outputs.</li>
-</ol>
-
-<h2 id="file-description">File description</h2>
-
-<ol>
-  <li>dataset.py : takes the relationships.json file from the Visual Genome dataset and extracts the dataset.json file.</li>
-  <li>dataset_loader.py : loads the dataset into the model in VG_model.py file</li>
-  <li>feature_extraction.py : extracts the bounding boxes, labels and RoI features from the faster-rcnn for the image.</li>
-  <li>visual_features : takes the inputs from feature_extraction.py and returns a visual score.</li>
-  <li>spatial_features.py : return a spatial score.</li>
-  <li>semantic_features.py : return a semantic score.</li>
-  <li>VG_model.py : loads an image, and gets all the three features here to train the model and also calculate the loss of the model.</li>
-  <li>evaluation_method1.py : to evaluate the model using the recall@100 method.</li>
-  <li>evaluation_method2.py : to evaluate the model using the recall method.</li>
-  <li>draw_graph.py : takes the predicted triples as an input and creates a knowledge representation that can be queried.</li>
-  <li>demo.py : visualize the whole model here, give an image as an input and get the knowledge graph for it.</li>
-</ol>
-
-<blockquote>
-  <p>This repository contains the code whose design is taken from <a href="https://arxiv.org/pdf/1811.09543.pdf">An Interpretable Model for Scene Graph Generation</a> and <a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Zhang_Relationship_Proposal_Networks_CVPR_2017_paper.pdf">Relationship Proposal Networks</a>.</p>
-</blockquote>
+<p><strong>Github repository:</strong> This work is done in collaboration with Toyota Europe so the code cannot be shared.</p>
 
       </div>
 
@@ -279,7 +233,7 @@
           </li>
 
           <li class="share__item">
-            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/&amp;media=http://localhost:4000http://localhost:4000/images/02.jpg&amp;description=Design%20of%20a%20semantic%20parser%20for%20knowledge%20representation%20using%20existing%20computer%20vision%20output"
+            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/05/05/Design-of-a-semantic-parser/&amp;media=http://localhost:4000http://localhost:4000/images/semantic_title_image.png&amp;description=Design%20of%20a%20semantic%20parser%20for%20knowledge%20representation%20using%20existing%20computer%20vision%20output"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest"
               rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
           </li>
@@ -309,7 +263,7 @@
 
     
     <div class="next">
-      <a class="post__nav__image" href="http://localhost:4000/2022/10/07/Gesture-recognition/" style="background-image: url(http://localhost:4000/images/03.jpg)">
+      <a class="post__nav__image" href="http://localhost:4000/2022/10/07/Gesture-recognition/" style="background-image: url(http://localhost:4000/images/gesture_title_image.png)">
       </a>
       <h2 class="post__nav__title">
         <a href="http://localhost:4000/2022/10/07/Gesture-recognition/">Gesture Recognition</a>

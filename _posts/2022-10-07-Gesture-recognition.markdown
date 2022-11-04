@@ -2,7 +2,7 @@
 layout: post
 title:  "Gesture Recognition"
 # date:   2022-10-07 18:05:55 +0300
-image:  03.jpg
+image:  gesture_title_image.png
 tags:   PROJECT
 ---
 
@@ -14,42 +14,23 @@ This functionality benchmark assesses the robot’s capability of recognizing ge
 
 The gestures (dependent variable) will be chosen from a list consisting of:
 
-1. **Head gestures:**
-    - [x] Nodding
-    - [x] Shaking head
+1. **Head gestures:** The head gestures are detected using the Haarcascade Classifier [haarcascade_frontalface_alt.xml](https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_alt.xml) to identify the face and then detect the movements in the x and y direction relative to the center of the face. The following head gestures are detected in this project.
+    - Nodding
+    - Shaking head
 
-2. **Hand gestures:**
-    - [x] Stop sign
-    - [ ] Pointing  
-    - [x] Thumb down
-    - [x] Thumbs up
-    - [ ] Pulling hand in
-    - [ ] Pushing hand out
-    - [x] Waving
+2. **Hand gestures:** The hand gestures are detected using the [Mediapipe Hands](https://google.github.io/mediapipe/solutions/hands.html) to detect the 21 3D landmarks of a hand as shown in the figure below. The following hand gestures are detected in this project.
+    - Stop sign
+    - Thumb down
+    - Thumbs up
+    - Waving
 
-Note: In this repo you can find the code of the gestures ticked above
+<p align="center">
+  <img align="center" width="75%" src="https://raw.githubusercontent.com/ananyaverma2/gesture_recognition_benchmark/master/images/hand_landmarks.png">
+</p>
 
-## Pre-requisites:
 
-1. OpenCV `pip install opencv-python`
-2. Mediapipe `pip install mediapipe`
-3. Ubuntu (20.04
-4. ROS Noetic
-5. Camera (Intel RealSense camera) `sudo apt-get install ros-$ROS_DISTRO-realsense2-camera`
 
-## How to run the code:
+Our team secured First place in the competition and the details can be found [here](https://www.h-brs.de/de/inf/b-it-bots-erfolgreich-auf-heart-met-wettbewerb-nottingham).
 
-Run the following commands on different terminals:
 
-Purpose | Command
-| :---: | :---: 
-communicate with the camera  | `roslaunch realsense2_camera rs_camera.launch`
-visualize the camera topic `/camera/color/image_raw` | `rviz`
-run the code | `roslaunch gesture_recognition_benchmark gesture_recognition_benchmark.launch`
-run referee box | `roslaunch metrics_refbox_client metrics_refbox_client.launch`
-
-## How to Use the Project:
-
-1. Run the referee box and select **Gesture Recognition** task from the given set of tasks.
-2. Press the start command and do the gesture infront of the camera.
-3. The result can be viewed on the referee box.
+**Github repository:** The repository can be found [here](https://github.com/ananyaverma2/gesture_recognition_benchmark)
