@@ -32,10 +32,10 @@
 <loc>http://localhost:4000/about/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+<loc>http://localhost:4000/home/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/styleguide/</loc>
+<loc>http://localhost:4000/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/tag/project/</loc>
