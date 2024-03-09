@@ -2,14 +2,12 @@
 layout: post
 title:  "Planetary and Exoplanetary Dataset"
 # date:   2022-10-07 18:05:55 +0300
-image:  02.jpg
+image:  display_cons.jpg
 tags:   PROJECT
 ---
 
 
-### Description:
-
-This repository is created for analyzing planetary and exoplanetary datasets and extract important information as there was no combined dataset available that has all the information.
+This project is created for analyzing planetary and exoplanetary datasets and extract important information as there was no combined dataset available that has all the information.
 
 > NOTE: The analysis of the data is done using the Jupyter Notebook in order to improve data visualization.
 
@@ -25,9 +23,19 @@ The information is extracted from the following datasets:
 You can find the following headers in the dataset:
 
 
-| hip  | ra(hms) | dec(dms) | ra(deg) | dec(deg) | magnitude | xy position | constellation names | distance(pc) | mass(ju) | radius(ju) |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 67522	| +13 50 6.000000480003109 |	-40 50 9.000067200005768	| 207.525 |	-40.835833 |	9.7900	| [33.016166527468506, -1.384613543882283]	|	--- | 127.2700 |	5.000000 |	0.898400 |
+| hip               | 67522               |
+|-------------------|---------------------|
+| ra(hms)           | +13 50 6.00         |
+| dec(dms)          | -40 50 9.00         |
+| ra(deg)           | 207.53              |
+| dec(deg)          | -40.83              |
+| magnitude        | 9.79                |
+| xy position       | [33.02, -1.38]      |
+| constellation names | ---                |
+| distance(pc)      | 127.27              |
+| mass(ju)          | 5.00                |
+| radius(ju)        | 0.89                |
+
 
 ### Description of the files in the dataset:
 
@@ -78,4 +86,4 @@ equ2gal(000.00091185, +01.08901332)
 
 #### visualizing the constellations using three boundary stars
 
-<img src="https://github.com/ananyaverma2/planetary-and-exoplanetary-dataset/blob/master/pictures/cons.jpg" width="600" height="600">
+<img src="https://raw.githubusercontent.com/ananyaverma2/planetary-and-exoplanetary-dataset/master/pictures/cons.jpg" width="600" height="600">

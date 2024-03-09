@@ -178,7 +178,7 @@
   
   
     <div class="post__head">
-      <div class="post-image" style="background-image: url(http://localhost:4000/images/02.jpg)"></div>
+      <div class="post-image" style="background-image: url(http://localhost:4000/images/pcl.png)"></div>
     </div>
   
 
@@ -191,11 +191,29 @@
     <article class="post  col col-8 col-t-10 col-m-12">
 
       <div class="post__content">
-        <p>Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out many of its tasks. RGB-D sensors can be used to obtain both a regular color image of a scene and what is called a depth image, in which each pixel encodes distances to the camera’s sensor; these distances are typically given with respect to a reference frame whose origin is at the location of the camera’s sensor.</p>
+        <h1 id="object-placement-using-point-cloud-library">Object Placement using Point Cloud Library</h1>
 
-<p>The images depicted below are the colored image and a representation of the depth image of the dinner table at the @Home Lab taken by Lucy.</p>
+<p>This project focuses on identifying possible drop points for a robot to place an object using a point cloud obtained from an RGB-D sensor. The sensor, mounted on the robot (Lucy), captures color and depth information, which is then processed to determine suitable locations for object placement.</p>
 
-<p>TBC…….</p>
+<p><img width="95%" src="https://raw.githubusercontent.com/ananyaverma2/PCL_object_placement/master/img/depth.jpeg" />
+<img width="95%" src="https://raw.githubusercontent.com/ananyaverma2/PCL_object_placement/master/img/point_cloud.jpeg" /></p>
+
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+  <li>Python 3</li>
+  <li>NumPy</li>
+  <li>Matplotlib</li>
+  <li>SciPy</li>
+  <li>Point Cloud Library (PCL)</li>
+</ul>
+
+<h3 id="methodology">Methodology</h3>
+
+<ul>
+  <li>The point cloud (cloud.pcd) is transformed based on the camera’s pose relative to the robot’s base.</li>
+  <li>Points are then ranked using a point ranking algorithm, considering their angles with respect to the Z-axis.</li>
+  <li>The output is visualized in a 3D plot, where suitable drop points for object placement are highlighted in red.</li>
+</ul>
 
       </div>
 
@@ -220,7 +238,7 @@
           </li>
 
           <li class="share__item">
-            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/&amp;media=http://localhost:4000http://localhost:4000/images/02.jpg&amp;description=Object%20placement%20using%20Point%20Cloud%20Library%20(PCL)"
+            <a class="share__pinterest" href="http://pinterest.com/pin/create/button/?url=http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/&amp;media=http://localhost:4000http://localhost:4000/images/pcl.png&amp;description=Object%20placement%20using%20Point%20Cloud%20Library%20(PCL)"
               onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;" title="Share on Pinterest"
               rel="nofollow"><i class="ion ion-logo-pinterest"></i></a>
           </li>
@@ -242,9 +260,9 @@
       </h2>
       <p class="prev__excerpt">
         
-          Overall functionality
+          The cluttered picking task is performed on the youBot in the B-it-bots lab and is divided into two parts:
 
-The cluttered picking task is performed on the youBot in the B-it-bots lab and is di...
+...
         
       </p>
     </div>
@@ -252,7 +270,7 @@ The cluttered picking task is performed on the youBot in the B-it-bots lab and i
 
     
     <div class="next">
-      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/" style="background-image: url(http://localhost:4000/images/02.jpg)">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/" style="background-image: url(http://localhost:4000/images/display_cons.jpg)">
       </a>
       <h2 class="post__nav__title">
         <a href="http://localhost:4000/2022/04/21/Planetary-and-Exoplanetary-Dataset/">Planetary and Exoplanetary Dataset</a>
@@ -260,9 +278,7 @@ The cluttered picking task is performed on the youBot in the B-it-bots lab and i
       </h2>
       <p class="next__excerpt">
         
-          ### Description:
-
-This repository is created for analyzing planetary and exoplanetary datasets and extract ...
+          This project is created for analyzing planetary and exoplanetary datasets and extract important information...
         
       </p>
     </div>

@@ -6,7 +6,7 @@ image:  03.jpg
 tags:   PROJECT
 ---
 
-This repository offers a detailed description to perform autonomous navigation using a KUKA youBot controlled via an external Laptop. This work was performed at RoboCup@Work Lab in Hochschule Bonn-Rhein-Sieg. 
+This project offers a detailed description to perform autonomous navigation using a KUKA youBot controlled via an external Laptop. This work was performed at RoboCup@Work Lab in Hochschule Bonn-Rhein-Sieg. 
 
   
 # Motivation

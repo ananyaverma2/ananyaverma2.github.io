@@ -191,9 +191,7 @@
     <article class="post  col col-8 col-t-10 col-m-12">
 
       <div class="post__content">
-        <h2 id="overall-functionality">Overall functionality</h2>
-
-<p>The cluttered picking task is performed on the youBot in the B-it-bots lab and is divided into two parts:</p>
+        <p>The cluttered picking task is performed on the youBot in the B-it-bots lab and is divided into two parts:</p>
 
 <ol>
   <li>Perception</li>
@@ -219,21 +217,6 @@ with its bounding boxes are detected.</li>
   <li>This process is looped over for the cluttered picking task.</li>
 </ul>
 
-<h2 id="how-to-run-the-code">How to run the code:</h2>
-
-<p>To run the code you have to run 2 terminals with the below mentioned commands:</p>
-
-<h4 id="terminal-1">Terminal-1</h4>
-<p>Run object detection code: <br />
-<code class="language-plaintext highlighter-rouge">roslaunch object_detection grasp_pose_estimation.launch</code></p>
-
-<h4 id="terminal-2">Terminal-2</h4>
-<p>Publish images from rosbag files continuously using the <code class="language-plaintext highlighter-rouge">-l</code> argument<br />
-<code class="language-plaintext highlighter-rouge">rosbag play -l &lt;path_to_bag_file/_.bag&gt;</code></p>
-
-<p><strong>OR</strong></p>
-
-<p>Connect to the youBot server at <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.114:11311</code> for youBot-4 and <code class="language-plaintext highlighter-rouge">export ROS_MASTER_URI=http://192.168.1.142:11311</code> for youBot-2</p>
 
       </div>
 
@@ -275,7 +258,7 @@ with its bounding boxes are detected.</li>
 
     
     <div class="next">
-      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/" style="background-image: url(http://localhost:4000/images/02.jpg)">
+      <a class="post__nav__image" href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/" style="background-image: url(http://localhost:4000/images/pcl.png)">
       </a>
       <h2 class="post__nav__title">
         <a href="http://localhost:4000/2022/04/21/Object-placement-using-Point-Cloud-Library/">Object placement using Point Cloud Library (PCL)</a>
@@ -283,7 +266,9 @@ with its bounding boxes are detected.</li>
       </h2>
       <p class="next__excerpt">
         
-          Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out...
+          # Object Placement using Point Cloud Library
+
+This project focuses on identifying possible drop points for ...
         
       </p>
     </div>

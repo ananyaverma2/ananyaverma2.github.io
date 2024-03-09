@@ -7,8 +7,6 @@ tags:   PROJECT
 ---
 
 
-## Overall functionality
-
 The cluttered picking task is performed on the youBot in the B-it-bots lab and is divided into two parts:
 
 1. Perception 
@@ -31,28 +29,3 @@ with its bounding boxes are detected.
 - This 2D position is converted to 3D position and the yaw is also calculated, which combinedly gives us the 4D grasing pose of the object.
 - This process is looped over for the cluttered picking task.
 
-
-
-
-
-
-
-
-
-
-
-## How to run the code:
-
-To run the code you have to run 2 terminals with the below mentioned commands:
-
-#### Terminal-1
-Run object detection code: <br/>
-`roslaunch object_detection grasp_pose_estimation.launch`
-
-#### Terminal-2
-Publish images from rosbag files continuously using the `-l` argument<br/>
-`rosbag play -l <path_to_bag_file/_.bag>`
-
-**OR**
-
-Connect to the youBot server at `export ROS_MASTER_URI=http://192.168.1.114:11311` for youBot-4 and `export ROS_MASTER_URI=http://192.168.1.142:11311` for youBot-2

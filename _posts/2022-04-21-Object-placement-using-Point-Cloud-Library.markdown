@@ -2,12 +2,26 @@
 layout: post
 title:  "Object placement using Point Cloud Library (PCL)"
 # date:   2022-10-07 18:05:55 +0300
-image:  02.jpg
+image:  pcl.png
 tags:   PROJECT
 ---
 
-Lucy is equipped with an RGB-D sensor (Asus Xtion) with which it obtains the required data for carrying out many of its tasks. RGB-D sensors can be used to obtain both a regular color image of a scene and what is called a depth image, in which each pixel encodes distances to the camera's sensor; these distances are typically given with respect to a reference frame whose origin is at the location of the camera's sensor.
+# Object Placement using Point Cloud Library
 
-The images depicted below are the colored image and a representation of the depth image of the dinner table at the @Home Lab taken by Lucy.
+This project focuses on identifying possible drop points for a robot to place an object using a point cloud obtained from an RGB-D sensor. The sensor, mounted on the robot (Lucy), captures color and depth information, which is then processed to determine suitable locations for object placement.
 
-TBC.......
+<img width="95%" src="https://raw.githubusercontent.com/ananyaverma2/PCL_object_placement/master/img/depth.jpeg">
+<img width="95%" src="https://raw.githubusercontent.com/ananyaverma2/PCL_object_placement/master/img/point_cloud.jpeg">
+
+### Dependencies
+* Python 3
+* NumPy
+* Matplotlib
+* SciPy
+* Point Cloud Library (PCL)
+
+### Methodology
+
+* The point cloud (cloud.pcd) is transformed based on the camera's pose relative to the robot's base.
+* Points are then ranked using a point ranking algorithm, considering their angles with respect to the Z-axis.
+* The output is visualized in a 3D plot, where suitable drop points for object placement are highlighted in red.
