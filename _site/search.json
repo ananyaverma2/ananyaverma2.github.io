@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Segmentation of Mars Terrain Using Classical Computer Vision Techniques",
+      "category" : "",
+      "tags"     : "PROJECT",
+      "url"      : "http://localhost:4000/2023/12/15/mars-segmentation/",
+      "date"     : "15 Dec, 2023"
+    } ,
+  
+    {
       "title"    : "Gesture Recognition",
       "category" : "",
       "tags"     : "PROJECT",
