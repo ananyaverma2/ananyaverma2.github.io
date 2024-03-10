@@ -2,7 +2,7 @@
 layout: post
 title:  "Cluttered Picking"
 # date:   2022-04-02 18:05:55 +0300
-image:  04.jpg
+image:  clutter.jpeg
 tags:   PROJECT
 ---
 
@@ -29,3 +29,4 @@ with its bounding boxes are detected.
 - This 2D position is converted to 3D position and the yaw is also calculated, which combinedly gives us the 4D grasing pose of the object.
 - This process is looped over for the cluttered picking task.
 
+**Github repository:** The repository can be found [here](https://github.com/ananyaverma2/HEART_MET_cluttered_pick)

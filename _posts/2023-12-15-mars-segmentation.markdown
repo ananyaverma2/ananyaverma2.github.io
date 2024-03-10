@@ -34,3 +34,5 @@ This project explores the segmentation of the topography on Mars by analysing da
 
 <img src="https://raw.githubusercontent.com/ananyaverma2/mars_terrain_segmentation/main/final_results/image1/final_Seg_all_3_classes_denoise.jpg">
 
+**Github repository:** The repository can be found [here](https://github.com/ananyaverma2/mars_terrain_segmentation)
+

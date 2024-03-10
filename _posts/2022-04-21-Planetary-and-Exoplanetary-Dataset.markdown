@@ -9,7 +9,7 @@ tags:   PROJECT
 
 This project is created for analyzing planetary and exoplanetary datasets and extract important information as there was no combined dataset available that has all the information.
 
-> NOTE: The analysis of the data is done using the Jupyter Notebook in order to improve data visualization.
+**NOTE:** The analysis of the data is done using the Jupyter Notebook in order to improve data visualization.
 
 ### Datasets:
 The information is extracted from the following datasets:
@@ -23,18 +23,19 @@ The information is extracted from the following datasets:
 You can find the following headers in the dataset:
 
 
-| hip               | 67522               |
-|-------------------|---------------------|
-| ra(hms)           | +13 50 6.00         |
-| dec(dms)          | -40 50 9.00         |
-| ra(deg)           | 207.53              |
-| dec(deg)          | -40.83              |
-| magnitude        | 9.79                |
-| xy position       | [33.02, -1.38]      |
-| constellation names | ---                |
-| distance(pc)      | 127.27              |
-| mass(ju)          | 5.00                |
-| radius(ju)        | 0.89                |
+            |      Category          |      Values         |
+            |------------------------|---------------------|
+            |      hip               | 67522               |
+            | ra(hms)                | +13 50 6.00         |
+            | dec(dms)               | -40 50 9.00         |
+            | ra(deg)                | 207.53              |
+            | dec(deg)               | -40.83              |
+            | magnitude              | 9.79                |
+            | xy position            | [33.02, -1.38]      |
+            | constellation names    |  -                  |
+            | distance(pc)           | 127.27              |
+            | mass(ju)               | 5.00                |
+            | radius(ju)             | 0.89                |
 
 
 ### Description of the files in the dataset:
@@ -81,9 +82,11 @@ equ2gal(000.00091185, +01.08901332)
 
 #### plotting individual constellations
 
-![plotting individual constellations](https://github.com/ananyaverma2/planetary-and-exoplanetary-dataset/blob/master/pictures/display_cons.jpg)
+![plotting individual constellations](https://raw.githubusercontent.com/ananyaverma2/planetary-and-exoplanetary-dataset/master/pictures/display_cons.jpg)
 
 
 #### visualizing the constellations using three boundary stars
 
 <img src="https://raw.githubusercontent.com/ananyaverma2/planetary-and-exoplanetary-dataset/master/pictures/cons.jpg" width="600" height="600">
+
+**Github repository:** The repository can be found [here](https://github.com/ananyaverma2/planetary-and-exoplanetary-dataset)

@@ -46,8 +46,8 @@ This use case is created using the graph depicted above: \
 `[input]` \
 `triples_with_given_predicate(G, "next to")` \
 `[output]` \
-`hammer and plas are linked with the relationships next to` \
-`plas and screwdriver are linked with the relationships next to`
+`hammer and plier are linked with the relationships next to` \
+`plier and screwdriver are linked with the relationships next to`
 
 
 

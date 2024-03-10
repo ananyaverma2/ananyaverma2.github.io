@@ -2,7 +2,7 @@
 layout: post
 title:  "Provenance Recording with ROS2"
 # date:   2022-10-07 18:05:55 +0300
-image:  04.jpg
+image:  ros2.png
 tags:   PROJECT
 ---
 
@@ -64,3 +64,5 @@ This file will take the information about the current running nodes, topics etc 
 - Currently we can get a single time snapshot of the system (i.e. the data for the current instant of time) and convert it into a provenance model. We also have the functionality to store the data for a given ROS 2 System. We can extend this to a real-time system which takes the data and converts it into a prov model in real-time till the stop button is pressed.
 - Modelling other elements of a ROS System such as Services, Actions etc.
 - Support for working with Graph Databases (i.e. Neo4j)
+
+**Github repository:** The repository can be found [here](https://github.com/omareldahshoury/ROS2-Provenance-Recording)

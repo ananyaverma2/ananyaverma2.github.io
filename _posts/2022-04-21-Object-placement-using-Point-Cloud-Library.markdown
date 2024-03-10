@@ -25,3 +25,5 @@ This project focuses on identifying possible drop points for a robot to place an
 * The point cloud (cloud.pcd) is transformed based on the camera's pose relative to the robot's base.
 * Points are then ranked using a point ranking algorithm, considering their angles with respect to the Z-axis.
 * The output is visualized in a 3D plot, where suitable drop points for object placement are highlighted in red.
+
+**Github repository:** The repository can be found [here](https://github.com/ananyaverma2/PCL_object_placement)
