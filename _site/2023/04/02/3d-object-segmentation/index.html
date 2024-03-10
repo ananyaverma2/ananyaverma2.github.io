@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Segmentation of Mars Terrain Using Classical Computer Vision Techniques</title>
+  <title>3D_Grapevine_Segmentation</title>
   <meta name='description' content=''>
 
-  <link rel="canonical" href="http://localhost:4000/2023/12/15/mars-segmentation/">
+  <link rel="canonical" href="http://localhost:4000/2023/04/02/3d-object-segmentation/">
 
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
@@ -107,7 +107,7 @@
       <div class="col col-10 push-2 col-11 push-t-1 col-m-12 push-m-0">
 
 
-        <h1 class="post-title">Segmentation of Mars Terrain Using Classical Computer Vision Techniques</h1>
+        <h1 class="post-title">3D_Grapevine_Segmentation</h1>
 
         <div class="post__info">
 
@@ -127,7 +127,7 @@
   
   
     <div class="post__head">
-      <div class="post-image" style="background-image: url(http://localhost:4000/images/mars.png)"></div>
+      <div class="post-image" style="background-image: url(http://localhost:4000/images/seg1.jpeg)"></div>
     </div>
   
 
@@ -139,36 +139,19 @@
     <article class="post  col col-8 col-t-10 col-m-12">
 
       <div class="post__content">
-        <p>This project explores the segmentation of the topography on Mars by analysing data gathered by rovers like Curiosity, Perseverance, and Spirit using traditional computer vision techniques. Automated identification of rocks, sand, and dust is essential for comprehending the surface of the planet and enabling rover navigation due to the heterogeneous Martian topography. We hope to address the difficulties caused by different lighting circumstances by utilising techniques such as edge detection and RGB segmentation, which allow for accurate segmentation based on texture and slight colour differences. The study, which is centred on the Perseverance rover’s photos from the Jezero crater <a href="https://mars.nasa.gov/resources/26978/detailed-panorama-of-mars-jezero-crater-delta/">i1</a>, attempts to classify the surface of Mars into three groups: Rock, Bedrock, and Sand. This will aid in the investigation and examination of possible indicators of prehistoric microbial life in certain areas, such as the Jezero delta.</p>
+        <h1 id="3d-segmentation-of-grapevines">3D segmentation of grapevines</h1>
 
-<p><img src="https://raw.githubusercontent.com/ananyaverma2/mars_terrain_segmentation/main/images/panorama.png" /></p>
+<p>The algorithm’s objective is to extract and analyze grapevines from 3D point clouds. It aims to identify and segment individual grapevines in the point cloud data, enabling further analysis and understanding of their structure and distribution.</p>
 
-<h2 id="steps-followed">Steps followed</h2>
+<p>The figure below shows the segmented grapevine:</p>
 
-<ul>
-  <li>Segment sand using Thresholding</li>
-  <li>Extract the rocks from the image</li>
-  <li>Edge detection for identifying rocks and bedrocks</li>
-  <li>Segmenting rocks and bedrocks with KNN</li>
-  <li>Segmenting rocks and bedrocks
-    <ul>
-      <li>Superimposing with contour</li>
-      <li>Superimposing with KNN</li>
-    </ul>
-  </li>
-  <li>Final result</li>
-</ul>
+<p><img src="https://raw.githubusercontent.com/ananyaverma2/3D_Grapevine_Segmentation/main/images/all_dataset_segmentation.png" /></p>
 
-<h2 id="input-image">Input image</h2>
+<p>Canopy characteristics are also extracted from the dataset to further analyze the grapevines. A plot of these for the subset of the dataset is shown in the figure below:</p>
 
-<p><img src="https://raw.githubusercontent.com/ananyaverma2/mars_terrain_segmentation/main/images/cv_test_images_1.png" /></p>
+<p><img src="https://raw.githubusercontent.com/ananyaverma2/3D_Grapevine_Segmentation/main/canopy_characteristics.png" /></p>
 
-<h2 id="output-image">Output image</h2>
-
-<p><img src="https://raw.githubusercontent.com/ananyaverma2/mars_terrain_segmentation/main/final_results/image1/final_Seg_all_3_classes_denoise.jpg" /></p>
-
-<p><strong>Github repository:</strong> The repository can be found <a href="https://github.com/ananyaverma2/mars_terrain_segmentation">here</a></p>
-
+<p><strong>Github repository:</strong> The repository can be found <a href="https://github.com/ananyaverma2/3D_Grapevine_Segmentation">here</a></p>
 
       </div>
 
@@ -180,21 +163,33 @@
   <div class="post__navigation">
     
     <div class="prev">
-      <a class="post__nav__image" href="http://localhost:4000/2023/04/02/3d-object-segmentation/" style="background-image: url(http://localhost:4000/images/seg1.jpeg)"></a>
+      <a class="post__nav__image" href="http://localhost:4000/2022/10/07/Gesture-recognition/" style="background-image: url(http://localhost:4000/images/gesture_title_image.png)"></a>
       <h2 class="post__nav__title">
         <i class="ion ion-md-arrow-back"></i>
-        <a href="http://localhost:4000/2023/04/02/3d-object-segmentation/">3D_Grapevine_Segmentation</a>
+        <a href="http://localhost:4000/2022/10/07/Gesture-recognition/">Gesture Recognition</a>
       </h2>
       <p class="prev__excerpt">
         
-          3D segmentation of grapevines
-
-The algorithm’s objective is to extract and analyze grapevines from 3D point...
+          This task was performed in METRICS HEART-MET Competition at Cobot Maker Space, University of Nottingham, Un...
         
       </p>
     </div>
     
 
+    
+    <div class="next">
+      <a class="post__nav__image" href="http://localhost:4000/2023/12/15/mars-segmentation/" style="background-image: url(http://localhost:4000/images/mars.png)">
+      </a>
+      <h2 class="post__nav__title">
+        <a href="http://localhost:4000/2023/12/15/mars-segmentation/">Segmentation of Mars Terrain Using Classical Computer Vision Techniques</a>
+        <i class="ion ion-md-arrow-forward"></i>
+      </h2>
+      <p class="next__excerpt">
+        
+          This project explores the segmentation of the topography on Mars by analysing data gathered by rovers like ...
+        
+      </p>
+    </div>
     
   </div>
 
