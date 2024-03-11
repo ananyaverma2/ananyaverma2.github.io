@@ -6,8 +6,6 @@ image:  pcl.png
 tags:   PROJECT
 ---
 
-# Object Placement using Point Cloud Library
-
 This project focuses on identifying possible drop points for a robot to place an object using a point cloud obtained from an RGB-D sensor. The sensor, mounted on the robot (Lucy), captures color and depth information, which is then processed to determine suitable locations for object placement.
 
 <img width="95%" src="https://raw.githubusercontent.com/ananyaverma2/PCL_object_placement/master/img/depth.jpeg">
