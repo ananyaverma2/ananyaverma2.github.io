@@ -20,4 +20,4 @@ Canopy characteristics are also extracted from the dataset to further analyze th
 <img src="https://raw.githubusercontent.com/ananyaverma2/3D_Grapevine_Segmentation/main/canopy_characteristics.png">
 
 
-**Github repository:** The repository can be found [here](https://github.com/ananyaverma2/3D_Grapevine_Segmentation)
+**Github repository:**  This work is done in collaboration with Fraunhofer IAIS so the code cannot be shared.
