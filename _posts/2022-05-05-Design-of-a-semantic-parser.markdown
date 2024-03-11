@@ -6,7 +6,6 @@ image:  semantic_title_image.png
 tags:   PROJECT
 ---
 
-## Motivation 
 The main goal of this research is to predict the relationships between two objects in an image and create a queryable knowledge representation, such that given the below image, the model should output the following graph:
 
 ### Input
