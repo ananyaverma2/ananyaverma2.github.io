@@ -7,8 +7,6 @@ tags:   PROJECT
 ---
 
 
-# 3D segmentation of grapevines
-
 The algorithm's objective is to extract and analyze grapevines from 3D point clouds. It aims to identify and segment individual grapevines in the point cloud data, enabling further analysis and understanding of their structure and distribution.
 
 The figure below shows the segmented grapevine:
