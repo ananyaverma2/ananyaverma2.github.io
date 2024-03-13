@@ -24,6 +24,9 @@ permalink: /about/
 <h4 style="margin-left: 30px;">B.Tech Electrical and Electronics Engineering</h4>
 <p style="margin-left: 30px;">Dr. A.P.J. Abdul Kalam University of Technology, Ghaziabad, India &mdash; Aug 2015 - June 2019</p>
 
+<h2 style="margin-left: 30px;margin-top:1cm;">Publications</h2>
+<p style="margin-left: 30px;">Verma, Ananya & Sinha, Ritwik & Choudhary, Sachin. (2019). General Analysis of Cube Satellite Technology: An Overview. International Journal of Computer Applications. 178. 19-22. 10.5120/ijca2019919054.</p>
+
 <h2 style="margin-left: 30px;margin-top:1cm;">Hobbies</h2>
 <p style="margin-left: 30px;"><strong>Reading:</strong> classics to relax me and Sci-Fi to keep me inspired</p>
 <p style="margin-left: 30px;"><strong>Painting and sketching:</strong> I enjoy painting or sketching landscapes, sunsets are my favorite</p>
